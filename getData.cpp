@@ -1,18 +1,3 @@
-//********************************************************************************
-//
-//  Author:           Chris Solakian
-//  Date Created:     11/26/2010
-//  Revisions:        1/8/2015
-//
-//  Purpose:          This is the implementation file for the getData object.
-//                    The getData object is used to input data from the console.
-//                    ITCS 2530; D.S. Malik
-//
-//  Input:            None.
-//  Output:           None.
-//
-//********************************************************************************
-
 #include <iostream>
 #include <string>
 #include "getData.h"

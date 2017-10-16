@@ -1,3 +1,17 @@
+//*******************************************************************************
+//
+//	Author:           Ismaeel Jamil
+//	Date Created:     3/15/2017
+//	Revisions:        None.
+//
+//	Purpose:          play tic tac toe
+//                    
+//
+//	Input:            cin, temp,
+//	Output:           player
+//
+//*******************************************************************************
+
 #include"ticTacToe.h"
 #include<iostream>
 #include<ctime>
