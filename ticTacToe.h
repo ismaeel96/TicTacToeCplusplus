@@ -18,5 +18,5 @@ private:
 
 	char board[3][3];
 	char player;
-	int turns=0;
+	int turns = 0;
 };

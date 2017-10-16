@@ -58,7 +58,7 @@ bool ticTacToe::isMoveValid(string input)
 {
 	try
 	{
-		stoi(input,0);
+		stoi(input, 0);
 	}
 	catch (...)
 	{
@@ -68,7 +68,7 @@ bool ticTacToe::isMoveValid(string input)
 	int row = stoi(input, 0);
 	char col = toupper(input[1]);
 
-	if(row < 1 || row > 3)
+	if (row < 1 || row > 3)
 		return false;
 	if (col < 'A' || row > 'C')
 		return false;
@@ -86,12 +86,12 @@ void ticTacToe::gameStatus()
 {
 	//column row /|-\\*/
 	bool winrWinrChknDnr = false;
-	char exitOrNot='n';
+	char exitOrNot = 'n';
 
 	for (int x = 0; x < 3; x++)
 	{
-		if (board[x][0] == board[x][1] && board[x][0] == board[x][2] && board[x][0]!=' '/*|| board[x][1]!= ' '|| board[x][2]!=' ')*/)
-			winrWinrChknDnr= true;
+		if (board[x][0] == board[x][1] && board[x][0] == board[x][2] && board[x][0] != ' '/*|| board[x][1]!= ' '|| board[x][2]!=' ')*/)
+			winrWinrChknDnr = true;
 	}
 	for (int y = 0; y < 3; y++)
 	{
@@ -108,25 +108,33 @@ void ticTacToe::gameStatus()
 		cout << "Player " << player << " wins!" << endl;
 		cout << "Enter Y or y to continue; any other character to quit ==> ";
 		getData::getChar(exitOrNot);
+
+		if (toupper(exitOrNot) == 'Y')
+		{
+			reset();
+			play();
+		}
+		if (toupper(exitOrNot) != 'Y')
+		{
+			exit(0);
+		}
 	}
 	if (winrWinrChknDnr && turns == 9)
 	{
 		cout << "This game is a draw!" << endl;
 		cout << "Enter Y or y to continue; any other character to quit ==> ";
 		getData::getChar(exitOrNot);
-	}
 
-	if (toupper(exitOrNot) == 'Y')
-	{
-		reset();
-		play();
+		if (toupper(exitOrNot) == 'Y')
+		{
+			reset();
+			play();
+		}
+		if (toupper(exitOrNot) != 'Y')
+		{
+			exit(0);
+		}
 	}
-	if (toupper(exitOrNot) != 'Y')
-	{
-		return;
-	}
-
-
 }
 
 void ticTacToe::reset()
@@ -143,9 +151,9 @@ void ticTacToe::reset()
 
 
 	if ((rand() % 2) == 1)
-	player = 'X';
+		player = 'X';
 	else
-	player = 'O';
+		player = 'O';
 }
 
 void ticTacToe::displayBoard()
